@@ -1,0 +1,40 @@
+name: LinkedIn Article Brief
+
+on:
+  schedule:
+    # Tuesday 19:00 IST = Tuesday 13:30 UTC (IST is UTC+5:30, no DST)
+    - cron: "30 13 * * 2"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  send-linkedin-brief:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Generate and send LinkedIn article brief
+        env:
+          GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
+        run: python send_linkedin_brief.py
+
+      - name: Commit updated case study usage counts
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add case_studies.json
+          git diff --cached --quiet || git commit -m "Update case study rotation counts [skip ci]"
+          git push
