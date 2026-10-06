@@ -2,20 +2,20 @@
   "_comment": "Your own anonymised NMB / Intuit anecdotes and metrics. Add as many entries as you like \u2014 the script rotates through them. Keep client names anonymised (e.g. 'a leading East African bank', 'a Fortune 500 fintech client'). Fill in real details before your first post.",
   "case_studies": [
     {
+      "id": "example-1",
+      "client_context": "A leading East African bank (anonymised NMB engagement)",
+      "challenge": "[Describe the operational/support problem in 1-2 sentences]",
+      "approach": "[What you/your team actually did \u2014 the BOT, automation, or process change]",
+      "measurable_outcome": "[A real number: e.g. 'reduced ticket resolution time by 35%', 'cut incident volume by 40% over two quarters']",
+      "used_count": 2
+    },
+    {
       "id": "example-2",
       "client_context": "A Fortune 500 fintech client (anonymised Intuit engagement)",
       "challenge": "[Describe the operational/support problem in 1-2 sentences]",
       "approach": "[What you/your team actually did]",
       "measurable_outcome": "[A real number or measurable result]",
       "used_count": 2
-    },
-    {
-      "id": "example-1",
-      "client_context": "A leading East African bank (anonymised NMB engagement)",
-      "challenge": "[Describe the operational/support problem in 1-2 sentences]",
-      "approach": "[What you/your team actually did \u2014 the BOT, automation, or process change]",
-      "measurable_outcome": "[A real number: e.g. 'reduced ticket resolution time by 35%', 'cut incident volume by 40% over two quarters']",
-      "used_count": 1
     }
   ]
 }
